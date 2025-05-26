@@ -1,0 +1,304 @@
+Loaded 14930 triplets for analysis.
+Columns: ['subject', 'predicate', 'object_raw', 'object_desc', 'iucn_code', 'iucn_name', 'doi', 'tax_class', 'tax_order', 'tax_family', 'tax_genus', 'tax_species']
+Sample data:
+                             subject                                          predicate  ...    tax_genus          tax_species
+0  Buff-breasted Paradise Kingfisher  experiences nesting failure due to predation, ...  ...  Tanysiptera   Tanysiptera sylvia
+1  Buff-breasted Paradise Kingfisher  suffers reduced nesting success from brood red...  ...  Tanysiptera   Tanysiptera sylvia
+2                    Mountain Plover  shows reduced breeding habitat availability du...  ...   Charadrius  Charadrius montanus
+3                           Songbird                                face predation from  ...      Various              Passeri
+4                               Bird  may experience reduced mating success due to v...  ...         None                 Aves
+
+[5 rows x 12 columns]
+
+--- IUCN Category vs. Unique Species Affected ---
+Number of unique species affected by each IUCN category:
+iucn_name
+Other threat                                      844
+Problematic native species/diseases               637
+Habitat shifting & alteration                     482
+Invasive non-native/alien species/diseases        460
+Recreational activities                           433
+Annual & perennial non-timber crops               390
+Housing & urban areas                             299
+Fire & fire suppression                           289
+Hunting & collecting terrestrial animals          246
+Other ecosystem modifications                     228
+Industrial & military effluents                   208
+Temperature extremes                              187
+Agricultural & forestry effluents                 154
+Dams & water management/use                       116
+Fishing & harvesting aquatic resources            111
+Droughts                                          106
+Storms & flooding                                 105
+Domestic & urban waste water                      101
+Garbage & solid waste                              92
+Livestock farming & ranching                       81
+Roads & railroads                                  70
+Air-borne pollutants                               59
+Renewable energy                                   58
+Logging & wood harvesting                          51
+Other impacts                                      49
+Wood & pulp plantations                            41
+Introduced genetic material                        38
+Utility & service lines                            26
+Marine & freshwater aquaculture                    22
+Commercial & industrial areas                      21
+Tourism & recreation areas                         21
+Excess energy                                      16
+Mining & quarrying                                 14
+Flight paths                                       12
+Gathering terrestrial plants                       11
+Earthquakes/tsunamis                                9
+Shipping lanes                                      8
+Work & other activities                             8
+War, civil unrest & military exercises              7
+Oil & gas drilling                                  6
+Viral/prion-induced diseases                        5
+Volcanoes                                           5
+Problematic species/diseases of unknown origin      4
+Avalanches/landslides                               1
+Pollution                                           1
+Name: subject, dtype: int64
+
+IUCN category affecting the most unique species: 'Other threat' (affecting 844 unique species).
+
+Saved plot to iucn_unique_species.png
+
+--- IUCN Category Occurrences per Species ---
+Top species most affected by a single IUCN category (most occurrences):
+             subject                               iucn_name  threat_count
+1202         Chicken     Problematic native species/diseases           368
+535             Bird                            Other threat           291
+5548          Turkey     Problematic native species/diseases            58
+1768            Duck     Problematic native species/diseases            38
+3072  Japanese quail                            Other threat            36
+6115     Zebra Finch                            Other threat            35
+4881         Seabird  Fishing & harvesting aquatic resources            32
+2913   House Sparrow                            Other threat            24
+5485    Tree Swallow                            Other threat            23
+5782   White Leghorn                            Other threat            20
+
+Species most frequently impacted by a single IUCN category: 'Chicken' by 'Problematic native species/diseases' (368 occurrences).
+
+--- IUCN Threat Diversity vs. Species Impact ---
+
+IUCN Categories with High Threat Description Diversity and Low Unique Species Impact:
+Empty DataFrame
+Columns: [iucn_name, unique_threat_descs, unique_species_affected]
+Index: []
+
+IUCN Categories with Low Threat Description Diversity and High Unique Species Impact:
+Empty DataFrame
+Columns: [iucn_name, unique_threat_descs, unique_species_affected]
+Index: []
+
+Saved plot to iucn_diversity_vs_impact.png
+
+--- Novel Analyses ---
+
+1. Most Common Impact Mechanisms (Predicates):
+predicate
+faces habitat degradation from                                                                                                                                                                                                                                           46
+experiences reduced breeding success due to                                                                                                                                                                                                                              42
+contributes to bat mortality through predation, although at a low rate.                                                                                                                                                                                                  20
+exhibits synurbization, contributing to increased breeding bird density.                                                                                                                                                                                                 16
+shows altered population dynamics due to                                                                                                                                                                                                                                 16
+faces reduced abundance and diversity due to lake water pollution, infrastructural development, anthropogenic activities, recreational activities, and infestation of invasive plants like water hyacinth, impacting the overall waterbird population in Begnas lake.    15
+suffers mortality from                                                                                                                                                                                                                                                   15
+experienced nest failure due to                                                                                                                                                                                                                                          15
+experienced significant population decline due to changes in food abundance and changes in vegetation structure related to forest succession on the breeding grounds, along with other processes that influence bird reproductive success and survivorship               12
+experience mortality from infection with the pathogenic lineage A/B of Trichomonas gallinae, a causative agent of epidemic outbreaks of trichomonosis                                                                                                                    12
+Name: count, dtype: int64
+
+2. Species Facing Most Diverse IUCN Threat Categories:
+subject
+Bird             40
+Seabird          24
+Chicken          22
+Waterbird        19
+Passerine        18
+Duck             17
+Songbird         17
+Great Tit        17
+Shorebird        16
+House Sparrow    16
+Name: iucn_code, dtype: int64
+
+3. Specific Threat Descriptions Impacting Most Unique Species:
+object_desc
+climate change               77
+predation                    60
+nest predation               47
+habitat loss                 34
+disturbance                  24
+human disturbance            22
+interspecific competition    20
+extinction                   20
+population declines          20
+parasitism                   20
+Name: subject, dtype: int64
+
+4. IUCN Category Co-occurrence (Top Pairs):
+Species with multiple co-occurring IUCN threat categories:
+        subject                                          iucn_name  num_iucn_categories
+237        Bird  [Problematic native species/diseases, Droughts...                   40
+1985    Seabird  [Problematic native species/diseases, Droughts...                   24
+497     Chicken  [Problematic native species/diseases, Storms &...                   22
+2319  Waterbird  [Problematic native species/diseases, Droughts...                   19
+1651  Passerine  [Problematic native species/diseases, Industri...                   18
+Top co-occurring IUCN category pairs across species:
+  ('Other threat', 'Problematic native species/diseases'): 258 species
+  ('Other threat', 'Recreational activities'): 213 species
+  ('Habitat shifting & alteration', 'Other threat'): 211 species
+  ('Invasive non-native/alien species/diseases', 'Problematic native species/diseases'): 198 species
+  ('Invasive non-native/alien species/diseases', 'Other threat'): 186 species
+
+5. Taxonomic Pattern: Threats per Bird Order (Top IUCN Categories):
+  Order 'Accipitriformes': Top threat is 'Industrial & military effluents' (45 times)
+  Order 'Aegothelidae': Top threat is 'Problematic native species/diseases' (1 times)
+  Order 'Aepyornithiformes': Top threat is 'Other threat' (1 times)
+  Order 'Anseriformes': Top threat is 'Problematic native species/diseases' (144 times)
+  Order 'Apodiformes': Top threat is 'Other threat' (17 times)
+  Order 'Apterygiformes': Top threat is 'Problematic native species/diseases' (2 times)
+  Order 'Bucerotiformes': Top threat is 'Other threat' (9 times)
+  Order 'Caprimulgiformes': Top threat is 'Housing & urban areas' (4 times)
+  Order 'Cariamiformes': Top threat is 'Other threat' (1 times)
+  Order 'Casuariiformes': Top threat is 'Habitat shifting & alteration' (6 times)
+  Order 'Charadriiformes': Top threat is 'Habitat shifting & alteration' (249 times)
+  Order 'Ciconiiformes': Top threat is 'Other threat' (11 times)
+  Order 'Coliiformes': Top threat is 'Temperature extremes' (2 times)
+  Order 'Columbiformes': Top threat is 'Problematic native species/diseases' (60 times)
+  Order 'Coraciiformes': Top threat is 'Other threat' (12 times)
+  Order 'Cuculiformes': Top threat is 'Problematic native species/diseases' (11 times)
+  Order 'Dinornithiformes': Top threat is 'Hunting & collecting terrestrial animals' (1 times)
+  Order 'Falconiformes': Top threat is 'Problematic native species/diseases' (23 times)
+  Order 'Galliformes': Top threat is 'Other threat' (666 times)
+  Order 'Gaviiformes': Top threat is 'Fishing & harvesting aquatic resources' (5 times)
+  Order 'Gruiformes': Top threat is 'Other threat' (35 times)
+  Order 'Ornithuromorpha': Top threat is 'Habitat shifting & alteration' (1 times)
+  Order 'Otidiformes': Top threat is 'Other threat' (11 times)
+  Order 'Paleognathae': Top threat is 'Other threat' (1 times)
+  Order 'Passeriformes': Top threat is 'Other threat' (637 times)
+  Order 'Pelecaniformes': Top threat is 'Other threat' (30 times)
+  Order 'Phaethontiformes': Top threat is 'Recreational activities' (3 times)
+  Order 'Phoenicopteriformes': Top threat is 'Other threat' (4 times)
+  Order 'Piciformes': Top threat is 'Other threat' (17 times)
+  Order 'Podicipediformes': Top threat is 'Dams & water management/use' (9 times)
+  Order 'Procellariformes': Top threat is 'Fishing & harvesting aquatic resources' (1 times)
+  Order 'Procellariiformes': Top threat is 'Fishing & harvesting aquatic resources' (86 times)
+  Order 'Psittaciformes': Top threat is 'Other threat' (62 times)
+  Order 'Pterocliformes': Top threat is 'Temperature extremes' (3 times)
+  Order 'Saurischia': Top threat is 'Other threat' (1 times)
+  Order 'Sphenisciformes': Top threat is 'Other threat' (41 times)
+  Order 'Steatornithiformes': Top threat is 'Recreational activities' (1 times)
+  Order 'Strigiformes': Top threat is 'Problematic native species/diseases' (25 times)
+  Order 'Struthioniformes': Top threat is 'Problematic native species/diseases' (14 times)
+  Order 'Suliformes': Top threat is 'Fishing & harvesting aquatic resources' (33 times)
+  Order 'Tinamiformes': Top threat is 'Other threat' (2 times)
+  Order 'Trogoniformes': Top threat is 'Droughts' (1 times)
+  Order 'Unavailable': Top threat is 'Industrial & military effluents' (1 times)
+  Order 'Various': Top threat is 'Annual & perennial non-timber crops' (6 times)
+  Order 'null': Top threat is 'Housing & urban areas' (1 times)
+
+6. Predicate-IUCN Category Affinity (Top Combinations):
+                                               predicate                            iucn_name  count
+6539         experiences reduced breeding success due to              Fire & fire suppression     17
+10746           shows altered population dynamics due to              Fire & fire suppression     16
+1746   exhibits synurbization, contributing to increa...                Housing & urban areas     16
+7861                      faces habitat degradation from                Housing & urban areas     14
+6544         experiences reduced breeding success due to              Recreational activities     14
+4942   experiences altered abundance and distribution...                 Temperature extremes     12
+7859                      faces habitat degradation from  Annual & perennial non-timber crops     12
+3019   experience mortality from infection with the p...  Problematic native species/diseases     12
+4666   experienced significant population decline due...        Other ecosystem modifications     12
+7849                       faces habitat alteration from                    Storms & flooding     12
+
+7. DOI Insights:
+DOIs contributing most triplets:
+                                    total_triplets  unique_species  unique_iucn_categories
+doi                                                                                       
+10.1134/s1062359023600915                       39              13                       4
+10.33581/2521-1722-2020-2-66-74                 32              15                       2
+10.15421/012121                                 30               6                       6
+10.1016/j.agee.2017.09.027                      28               7                       2
+10.1111/j.1365-2907.1991.tb00114.x              28              17                       2
+
+8. Predicate Detail (Length) per IUCN Category (Median):
+iucn_name
+Marine & freshwater aquaculture    170.0
+Earthquakes/tsunamis               165.0
+Commercial & industrial areas      164.5
+Pollution                          156.0
+Mining & quarrying                 155.5
+Other impacts                      146.0
+Shipping lanes                     141.5
+Renewable energy                   137.0
+Introduced genetic material        136.0
+Logging & wood harvesting          134.0
+Name: predicate_length, dtype: float64
+
+9. Network Perspective (Data for Species-IUCN Category Graph):
+  - Number of unique species (nodes): 2490
+  - Number of unique IUCN categories (nodes): 45
+  - Number of connections (edges): 6132
+  Top 5 IUCN Categories by number of species connected:
+iucn_name
+Other threat                                  844
+Problematic native species/diseases           637
+Habitat shifting & alteration                 482
+Invasive non-native/alien species/diseases    460
+Recreational activities                       433
+Name: subject, dtype: int64
+  Top 5 Species by number of IUCN Categories connected:
+subject
+Bird         40
+Seabird      24
+Chicken      22
+Waterbird    19
+Passerine    18
+Name: iucn_name, dtype: int64
+
+10. Threat Hotspots (Most common threat descriptions within top IUCN categories):
+  Hotspots for IUCN Category 'Other threat':
+    - 'extinction': 27 times
+    - 'mortality': 20 times
+    - 'population declines': 11 times
+  Hotspots for IUCN Category 'Problematic native species/diseases':
+    - 'predation': 58 times
+    - 'nest predation': 39 times
+    - 'parasitism': 18 times
+  Hotspots for IUCN Category 'Annual & perennial non-timber crops':
+    - 'agricultural intensification': 23 times
+    - 'habitat loss': 17 times
+    - 'feed restriction': 16 times
+
+11. Predicate Diversity per IUCN Category:
+iucn_name
+Other threat                                  2135
+Problematic native species/diseases           1656
+Annual & perennial non-timber crops            972
+Habitat shifting & alteration                  935
+Invasive non-native/alien species/diseases     880
+Recreational activities                        842
+Housing & urban areas                          587
+Temperature extremes                           462
+Industrial & military effluents                413
+Agricultural & forestry effluents              412
+Name: predicate, dtype: int64
+
+12. Average Number of Threats (IUCN categories) per Species:
+  Overall average: 2.46 unique IUCN categories per species.
+  Average unique IUCN categories per species by Order:
+tax_order
+Casuariiformes      5.000000
+Sphenisciformes     4.615385
+Falconiformes       3.826087
+Phaethontiformes    3.500000
+Otidiformes         3.285714
+Name: iucn_code, dtype: float64
+
+--- Analysis Complete ---
+Consider the generated PNG files for visualizations.
+The 'shape of things' (distributions, network properties) indeed matters and is reflected in these analyses.
+For example, skewed distributions in threats per species or IUCN category prevalence highlight common vs. rare issues.
+Network perspectives (like species connected to many IUCN types, or IUCN types connected to many species) identify critical nodes/categories.
